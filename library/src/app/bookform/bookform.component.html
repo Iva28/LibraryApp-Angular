@@ -1,0 +1,24 @@
+<form [formGroup]='bookForm' (ngSubmit)='onSubmit()'>
+    <mat-form-field>
+      <input formControlName='title' matInput type="text" placeholder="Title"/>
+    </mat-form-field>
+    <mat-form-field>
+        <input formControlName='author' matInput type="text" placeholder="Author"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName='publisher' matInput type="text" placeholder="Publisher"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName='pages' matInput type="number" placeholder="Pages"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName='copies' matInput type="number" placeholder="Copies"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName='year' matInput type="number" placeholder="Year"/>
+    </mat-form-field>
+    <div>
+      <button (click)='onClose()' type='reset' mat-raised-button>Close</button>
+      <button mat-raised-button color='primary' type="submit">Save</button>
+    </div>
+  </form>
