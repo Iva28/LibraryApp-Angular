@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Book } from '../models/book';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-bookform',
@@ -14,6 +15,7 @@ export class BookformComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder, 
+    private bookService: BookService,
     public dialogRef: MatDialogRef<BookformComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Book) { }
 
@@ -31,7 +33,8 @@ export class BookformComponent implements OnInit {
   onSubmit() {
     if (this.bookForm.valid) {
       if (this.data.id === 0) {
-        const book = new Book(13,
+        let id = this.bookService.getBooks.length + 1;
+        const book = new Book(id,
         this.bookForm.value.title,
         this.bookForm.value.author,
         this.bookForm.value.year,
@@ -41,7 +44,7 @@ export class BookformComponent implements OnInit {
         this.dialogRef.close(book);
       } else {
         this.data.title = this.bookForm.value.title;
-        this.data.author = this.bookForm.value.gender;
+        this.data.author = this.bookForm.value.author;
         this.data.year = this.bookForm.value.year;
         this.data.publisher = this.bookForm.value.publisher;
         this.data.pages = this.bookForm.value.pages;

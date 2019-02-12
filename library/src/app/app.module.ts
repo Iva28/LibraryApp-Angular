@@ -19,9 +19,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
-import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from "@angular/material/icon";
+import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { BookformWrapComponent } from './bookform-wrap/bookform-wrap.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {MatIconModule} from "@angular/material/icon";
     VisitorsComponent,
     CardsComponent,
     StatisticsComponent,
-    BookformComponent
+    BookformComponent,
+    BookformWrapComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,13 @@ import {MatIconModule} from "@angular/material/icon";
     MatDialogModule,
     MatTableModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: [] }
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    BookformComponent
+  ]
 })
 export class AppModule { }

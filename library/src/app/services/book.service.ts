@@ -8,11 +8,11 @@ import {Observable} from "rxjs";
 export class BookService {
 
   public books: Book[] = [
-    new Book(1, 'Book 1', "Author 1", 2001, 'Publisher 1', 100, 5),
-    new Book(2, 'Book 2', "Author 2", 2002, 'Publisher 2', 200, 7),
-    new Book(3, 'Book 3', "Author 3", 2003, 'Publisher 3', 300, 4),
-    new Book(4, 'Book 4', "Author 4", 2004, 'Publisher 4', 400, 3),
-    new Book(5, 'Book 5', "Author 5", 2005, 'Publisher 5', 500, 10)
+    new Book(1, 'Book 1', 'Author 1', 2001, 'Publisher 1', 100, 5),
+    new Book(2, 'Book 2', 'Author 2', 2002, 'Publisher 2', 200, 7),
+    new Book(3, 'Book 3', 'Author 3', 2003, 'Publisher 3', 300, 4),
+    new Book(4, 'Book 4', 'Author 4', 2004, 'Publisher 4', 400, 3),
+    new Book(5, 'Book 5', 'Author 5', 2005, 'Publisher 5', 500, 10)
   ];
 
   constructor() { }
@@ -32,11 +32,15 @@ export class BookService {
   
   editBook(book: Book){
     const b = this.getBook(book.id);
+    b.title = book.title;
     b.author = book.author;
-    b.copies = b.copies;
+    b.copies = book.copies;
     b.pages = book.pages;
     b.publisher = book.publisher;
-    b.title = b.title;
-    b.year = b.year;
+    b.year = book.year;
+  }
+
+  addBook(book: Book) {
+    this.books.push(book);
   }
 }

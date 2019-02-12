@@ -24,19 +24,19 @@ export class BooksComponent implements OnInit {
     this.setDataSource();
   }
 
+  setDataSource() {
+    this.dataSource = new MatTableDataSource(this.books);
+  }
+
   delete(book: Book) {
     this.bookService.deleteBook(book);
     this.setDataSource();
   }
 
-  edit(book: Book) {
+/*   edit(book: Book) {
     this.bookService.editBook(book);
   }
-
-  setDataSource() {
-    this.dataSource = new MatTableDataSource(this.books);
-  }
-
+  
   OpenDialog() {
     let book = new Book(0, '', '', 0, '', 0, 0);
     let dialogRef = this.dialog.open(BookformComponent, {data: book});
@@ -44,5 +44,5 @@ export class BooksComponent implements OnInit {
       console.log('dialog closed');
       console.log(result);
     })
-  }
+  } */
 }
