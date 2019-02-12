@@ -17,6 +17,7 @@ export class BooksComponent implements OnInit{
   dataSource;
   displayedColumns = ['id', 'title', 'author', 'year', 'publisher', 'pages', 'copies', 'actionEdit', 'actionDelete'];
   subscriptions: Subscription[] = [];
+  sortTypes = ['copies', 'title', 'author'];
 
   constructor(private bookService: BookService, public dialog: MatDialog) {  
     this.subscriptions.push( this.bookService.refreshStream.subscribe(() => this.load()) );
@@ -32,6 +33,19 @@ export class BooksComponent implements OnInit{
   }
 
   delete(book: Book) {
-    this.bookService.deleteBook(book);
+    this.bookService.deleteBook(book);   
+  }
+
+  sort(type: string) {
+    this.books.sort(function(a, b) {
+      if (type == 'copies') {
+        return a.copies - b.copies;
+      } else if (type == 'title') {
+        return (a.title < b.title) ? -1 : (a.title > b.title) ? 1 : 0;
+      } else if (type == 'author') {
+        return (a.author < b.author) ? -1 : (a.author > b.author) ? 1 : 0;
+      }
+    });
+    this.dataSource = new MatTableDataSource(this.books);
   }
 }
