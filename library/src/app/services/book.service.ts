@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
-import {Observable} from "rxjs";
+import {Observable, BehaviorSubject, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
+
+  private refreshSource: Subject<boolean> = new Subject();
+  public refreshStream: Observable<boolean> = this.refreshSource.asObservable();
 
   public books: Book[] = [
     new Book(1, 'Book 1', 'Author 1', 2001, 'Publisher 1', 100, 5),
@@ -28,6 +31,7 @@ export class BookService {
   deleteBook(book: Book){
     const index = this.books.indexOf(book);
     this.books.splice(index, 1);
+    this.refreshSource.next(true);
   }
   
   editBook(book: Book){
@@ -38,9 +42,11 @@ export class BookService {
     b.pages = book.pages;
     b.publisher = book.publisher;
     b.year = book.year;
+    this.refreshSource.next(true);
   }
 
   addBook(book: Book) {
     this.books.push(book);
+    this.refreshSource.next(true);
   }
 }

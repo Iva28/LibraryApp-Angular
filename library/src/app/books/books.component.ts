@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book';
 import { BookService } from '../services/book.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { BookformComponent } from '../bookform/bookform.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-books',
@@ -11,38 +11,27 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./books.component.css']
 })
 
-export class BooksComponent implements OnInit {
+export class BooksComponent implements OnInit{
 
   books: Book[];
-  displayedColumns = ['id', 'title', 'author', 'year', 'publisher', 'pages', 'copies', 'actionEdit', 'actionDelete'];
   dataSource;
+  displayedColumns = ['id', 'title', 'author', 'year', 'publisher', 'pages', 'copies', 'actionEdit', 'actionDelete'];
+  subscriptions: Subscription[] = [];
 
-  constructor(private bookService: BookService, public dialog: MatDialog) { }
+  constructor(private bookService: BookService, public dialog: MatDialog) {  
+    this.subscriptions.push( this.bookService.refreshStream.subscribe(() => this.load()) );
+  }
   
   ngOnInit() {
-    this.books = this.bookService.getBooks();
-    this.setDataSource();
+    this.load();
   }
 
-  setDataSource() {
+  load() {
+    this.books = this.bookService.getBooks();
     this.dataSource = new MatTableDataSource(this.books);
   }
 
   delete(book: Book) {
     this.bookService.deleteBook(book);
-    this.setDataSource();
   }
-
-/*   edit(book: Book) {
-    this.bookService.editBook(book);
-  }
-  
-  OpenDialog() {
-    let book = new Book(0, '', '', 0, '', 0, 0);
-    let dialogRef = this.dialog.open(BookformComponent, {data: book});
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('dialog closed');
-      console.log(result);
-    })
-  } */
 }

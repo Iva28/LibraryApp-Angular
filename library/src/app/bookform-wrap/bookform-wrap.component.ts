@@ -18,6 +18,7 @@ export class BookformWrapComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    
     let book = new Book(0, '', '', 0, '', 0, 0);
 
     this.route.params.forEach((params) => {
