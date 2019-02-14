@@ -24,17 +24,16 @@ export class BookformComponent implements OnInit {
       title: [this.data.title, [Validators.required]],
       author: [this.data.author, [Validators.required]],
       publisher: [this.data.publisher, [Validators.required]],
-      pages: [this.data.pages, [Validators.required]],
-      copies: [this.data.copies, [Validators.required]],
-      year: [this.data.year, [Validators.required]]
+      pages: [this.data.pages, [Validators.required, Validators.min(0)]],
+      copies: [this.data.copies, [Validators.required, Validators.min(0)]],
+      year: [this.data.year, [Validators.required, Validators.min(0)]]
     })
   }
 
   onSubmit() {
     if (this.bookForm.valid) {
       if (this.data.id === 0) {
-        let id = this.bookService.getBooks.length + 1;
-        const book = new Book(id,
+        const book = new Book(0,
         this.bookForm.value.title,
         this.bookForm.value.author,
         this.bookForm.value.year,

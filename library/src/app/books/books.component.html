@@ -1,6 +1,4 @@
-
-<div class='wrapper'>
-
+<div>
   <h3>ALL BOOKS: </h3>
   <button mat-raised-button color="primary" routerLink='/books/new'>New Book</button>
 
@@ -13,6 +11,12 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+  </div>
+
+  <div class='searchBox'>
+    <label>Search:</label>
+    <input #box (keyup.enter)="search(box.value)">
+    <button (click)="search(box.value)">Search</button>
   </div>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

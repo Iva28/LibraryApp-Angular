@@ -1,0 +1,12 @@
+<form [formGroup]='visitorForm' (ngSubmit)='onSubmit()'>
+    <mat-form-field>
+      <input formControlName='name' matInput type="text" placeholder="Name"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName='phone' matInput type="text" placeholder="Phone"/>
+    </mat-form-field>
+    <div>
+      <button (click)='onClose()' type='reset' mat-raised-button>Close</button>
+      <button mat-raised-button color='primary' type="submit">Save</button>
+    </div>
+  </form>

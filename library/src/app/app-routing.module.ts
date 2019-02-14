@@ -6,16 +6,20 @@ import { CardsComponent } from './cards/cards.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { BookformComponent } from './bookform/bookform.component';
 import { BookformWrapComponent } from './bookform-wrap/bookform-wrap.component';
+import { VisitorformWrapComponent } from './visitorform-wrap/visitorform-wrap.component';
 
 const routes: Routes = [
   { path: 'books', component: BooksComponent, children: [
     { path: 'edit/:id', component: BookformWrapComponent },
     { path: 'new', component: BookformWrapComponent },
   ] },
-  { path: 'visitors', component: VisitorsComponent},
+  { path: '', pathMatch: 'full', redirectTo: 'books'},
+  { path: 'visitors', component: VisitorsComponent, children: [
+    { path: 'edit/:id', component: VisitorformWrapComponent },
+    { path: 'new', component: VisitorformWrapComponent },
+  ]},
   { path: 'cards', component: CardsComponent},
   { path: 'statistics', component: StatisticsComponent},
-  { path: 'newbook', component: BookformComponent}
 ];
 
 @NgModule({

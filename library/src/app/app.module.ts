@@ -10,6 +10,9 @@ import { VisitorsComponent } from './visitors/visitors.component';
 import { CardsComponent } from './cards/cards.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { BookformComponent } from './bookform/bookform.component';
+import { BookformWrapComponent } from './bookform-wrap/bookform-wrap.component';
+import { VisitorformComponent } from './visitorform/visitorform.component';
+import { VisitorformWrapComponent } from './visitorform-wrap/visitorform-wrap.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
@@ -22,8 +25,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from "@angular/material/icon";
 import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { BookformWrapComponent } from './bookform-wrap/bookform-wrap.component';
-
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { BookformWrapComponent } from './bookform-wrap/bookform-wrap.component';
     CardsComponent,
     StatisticsComponent,
     BookformComponent,
-    BookformWrapComponent
+    BookformWrapComponent,
+    VisitorformComponent,
+    VisitorformWrapComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { BookformWrapComponent } from './bookform-wrap/bookform-wrap.component';
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    BookformComponent
+    BookformComponent,
+    VisitorformComponent
   ]
 })
 export class AppModule { }

@@ -23,3 +23,20 @@ label {
     font-size: 14px;
     font-weight: 500;
 }
+
+.searchBox {
+  margin-bottom: 20px;
+}
+
+.searchBox * {
+    margin: 5px;
+}
+
+.mat-button {
+    min-width: 0;
+    padding: 0;
+}
+
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 10px;
+}

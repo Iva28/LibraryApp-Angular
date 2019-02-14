@@ -48,4 +48,11 @@ export class BooksComponent implements OnInit{
     });
     this.dataSource = new MatTableDataSource(this.books);
   }
+
+  search(str: string) {
+    let res = this.books.filter(function(b) {
+      return b.author.includes(str) || b.title.includes(str) || b.publisher.includes(str) ;
+    })
+    this.dataSource = new MatTableDataSource(res);
+  }
 }

@@ -1,3 +1,51 @@
-<p>
-  visitors works!
-</p>
+<div>
+  <h3>ALL VISITORS: </h3>
+  <button mat-raised-button color="primary" routerLink='/visitors/new'>New Visitor</button>
+
+  <div>
+      <label>Sort by: </label>
+      <mat-form-field>
+        <mat-select (selectionChange)="sort($event.value)">
+          <mat-option *ngFor="let type of sortTypes" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <div class='searchBox'>
+      <label>Search:</label>
+      <input #box (keyup.enter)="search(box.value)">
+      <button (click)="search(box.value)">Search</button>
+    </div>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let visitor"> {{visitor.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let visitor"> {{visitor.name}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let visitor"> {{visitor.phone}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actionEdit">
+        <th mat-header-cell *matHeaderCellDef>Edit</th>
+        <td mat-cell *matCellDef="let visitor">
+        <button mat-button routerLink='/visitors/edit/{{visitor.id}}'><mat-icon>edit</mat-icon></button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <router-outlet></router-outlet>
+</div>
