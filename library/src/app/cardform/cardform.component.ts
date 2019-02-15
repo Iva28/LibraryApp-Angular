@@ -20,14 +20,11 @@ export class CardformComponent implements OnInit {
 
   cardForm: FormGroup;
 
-  constructor(private fb: FormBuilder, 
-    private bookService: BookService,
-    private visitorService: VisitorService,
-    public dialogRef: MatDialogRef<CardformComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Card) { }
+  constructor(private fb: FormBuilder, private bookService: BookService, private visitorService: VisitorService,
+     public dialogRef: MatDialogRef<CardformComponent>, @Inject(MAT_DIALOG_DATA) public data: Card) { }
 
   ngOnInit() {
-    this.books = this.bookService.getBooks();
+    this.books = this.bookService.getBooks().filter(function(b) {return b.copies > 0; });
     this.visitors = this.visitorService.getVisitors();
     this.cardForm = this.fb.group({
       visitor: [this.data.visitorID, [Validators.required]],

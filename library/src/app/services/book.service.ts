@@ -15,7 +15,7 @@ export class BookService {
     new Book(2, 'B', 'Author 2', 2002, 'Publisher 2', 200, 5),
     new Book(3, 'E', 'E', 2003, 'Publisher 3', 300, 4),
     new Book(4, 'C', 'C', 2004, 'Publisher 4', 400, 3),
-    new Book(5, 'D', 'D', 2005, 'Publisher 5', 500, 10)
+    new Book(5, 'W', 'D', 2005, 'Publisher 5', 500, 0)
   ];
 
   constructor() { }
@@ -51,4 +51,11 @@ export class BookService {
     this.refreshSource.next(true);
   }
 
+  reduceNumberOfCopies(bookId: number) {
+    this.getBook(bookId).copies--;
+  }
+
+  increaseNumberOfCopies(bookId: number) {
+    this.getBook(bookId).copies++;
+  }
 }

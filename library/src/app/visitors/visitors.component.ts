@@ -32,14 +32,15 @@ export class VisitorsComponent implements OnInit {
   }
 
   sort(type: string) {
-    this.visitors.sort(function(a, b) {
+    let sortVisitors = this.visitors.slice();
+    sortVisitors.sort(function(a, b) {
       if (type == 'id') {
         return a.id - b.id;
       } else if (type == 'name') {
         return (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0;
       }
     });
-    this.dataSource = new MatTableDataSource(this.visitors);
+    this.dataSource = new MatTableDataSource(sortVisitors);
   }
 
   search(str: string) {

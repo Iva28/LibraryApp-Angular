@@ -37,7 +37,8 @@ export class BooksComponent implements OnInit{
   }
 
   sort(type: string) {
-    this.books.sort(function(a, b) {
+    let sortBooks = this.books.slice();
+    sortBooks.sort(function(a, b) {
       if (type == 'copies') {
         return a.copies - b.copies;
       } else if (type == 'title') {
@@ -46,13 +47,13 @@ export class BooksComponent implements OnInit{
         return (a.author < b.author) ? -1 : (a.author > b.author) ? 1 : 0;
       }
     });
-    this.dataSource = new MatTableDataSource(this.books);
+    this.dataSource = new MatTableDataSource(sortBooks);
   }
 
   search(str: string) {
-    let res = this.books.filter(function(b) {
+    this.books = this.books.filter(function(b) {
       return b.author.includes(str) || b.title.includes(str) || b.publisher.includes(str) ;
     })
-    this.dataSource = new MatTableDataSource(res);
+    this.dataSource = new MatTableDataSource(this.books);
   }
 }

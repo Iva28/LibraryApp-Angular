@@ -21,7 +21,7 @@ export class CardsComponent implements OnInit {
   subscriptions: Subscription[] = [];
   sortTypes = ['Date Out', 'Return Date'];
 
-  constructor(private cardService: CardService,private bookService: BookService, private visitorService: VisitorService, public dialog: MatDialog) {  
+  constructor(private cardService: CardService, private bookService: BookService, private visitorService: VisitorService, public dialog: MatDialog) {  
     this.subscriptions.push( this.cardService.refreshStream.subscribe(() => this.load()) );
   }
 
@@ -42,34 +42,37 @@ export class CardsComponent implements OnInit {
   }
 
   search(str: string) {
-    let res = this.cards.filter(function(c) {
-      return c.visitor.name.includes(str) || c.book.includes(str);
-    })
-    this.dataSource = new MatTableDataSource(res);
+    this.cards = this.cards.filter(function(c) {
+      return c.visitor.name.includes(str) || c.book.title.includes(str);
+    });
+    this.dataSource = new MatTableDataSource(this.cards);
   }
 
   OpenDialog() {
     let card = new Card (0, 0, 0, new Date(), null);
     let dialogRef = this.dialog.open(CardformComponent, {data: card});
     dialogRef.afterClosed().subscribe(result => {
-      if(result != undefined)
+      if(result != undefined){
         this.cardService.addCard(result);
+        this.bookService.reduceNumberOfCopies(result.bookID);
+      }
     });
   }
 
   setDateReturn(cardId: number) {
     this.cardService.setReturnDate(cardId);
+    const card = this.cardService.getCard(cardId);
+    this.bookService.increaseNumberOfCopies(card.bookID);
   }
 
   sort(type: string) {
-    this.cards.sort(function(a, b) {
-      if (type == 'Date Out') {
+    let sortCards = this.cards.slice();
+    sortCards.sort(function(a, b) {
+      if (type == 'Date Out')
         return (a.dateOut < b.dateOut) ? -1 : (b.dateOut > b.dateOut) ? 1 : 0;
-      } else if (type == 'Return Date') {
+      else if (type == 'Return Date')
         return (a.dateReturn > b.dateReturn) ? -1 : (b.dateReturn < b.dateReturn) ? 1 : 0;
-      } 
     });
-    this.dataSource = new MatTableDataSource(this.cards);
+    this.dataSource = new MatTableDataSource(sortCards);
   }
-
 }
