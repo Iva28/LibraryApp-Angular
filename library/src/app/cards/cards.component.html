@@ -1,7 +1,6 @@
 <div>
     <h3>ALL CARDS: </h3>
-    <button mat-raised-button color="primary" routerLink='/visitors/new'>New Card</button>
-  
+    <button mat-raised-button color="primary" (click)='OpenDialog()'>New Card</button>
     <div>
         <label>Sort by: </label>
         <mat-form-field>
@@ -28,25 +27,31 @@
       
         <ng-container matColumnDef="visitor">
           <th mat-header-cell *matHeaderCellDef> Visitor </th>
-          <td mat-cell *matCellDef="let card"> {{card.visitor}} </td>
+          <td mat-cell *matCellDef="let card"> {{card.visitor.name}} </td>
         </ng-container>
     
         <ng-container matColumnDef="book">
           <th mat-header-cell *matHeaderCellDef> Book </th>
-          <td mat-cell *matCellDef="let card"> {{card.book}} </td>
+          <td mat-cell *matCellDef="let card"> {{card.book.title}} </td>
         </ng-container>
 
         <ng-container matColumnDef="dateOut">
-            <th mat-header-cell *matHeaderCellDef> Date Out </th>
-            <td mat-cell *matCellDef="let card"> {{card.dateOut}} </td>
-          </ng-container>
+          <th mat-header-cell *matHeaderCellDef> Date Out </th>
+          <td mat-cell *matCellDef="let card"> {{card.dateOut | date: 'dd/MM/yyyy'}} </td>
+        </ng-container>
 
-          <ng-container matColumnDef="dateReturn">
-              <th mat-header-cell *matHeaderCellDef> Return Book </th>
-              <td mat-cell *matCellDef="let card"> {{card.dateReturn}} </td>
-            </ng-container>
+        <ng-container matColumnDef="dateReturn">
+          <th mat-header-cell *matHeaderCellDef> Return Book </th>
+          <td mat-cell *matCellDef="let card" > 
+            <div *ngIf= "card.dateReturn">
+              {{card.dateReturn | date: 'dd/MM/yyyy'}} 
+            </div>
+            <div *ngIf= "card.dateReturn == null">
+                <button mat-button (click)='setDateReturn(card.id)'><mat-icon>reply</mat-icon></button>
+              </div>
+          </td>
+        </ng-container>
     
-      
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>

@@ -4,9 +4,9 @@ import { BooksComponent } from './books/books.component';
 import { VisitorsComponent } from './visitors/visitors.component';
 import { CardsComponent } from './cards/cards.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { BookformComponent } from './bookform/bookform.component';
 import { BookformWrapComponent } from './bookform-wrap/bookform-wrap.component';
 import { VisitorformWrapComponent } from './visitorform-wrap/visitorform-wrap.component';
+import { CardformComponent } from './cardform/cardform.component';
 
 const routes: Routes = [
   { path: 'books', component: BooksComponent, children: [
@@ -18,7 +18,9 @@ const routes: Routes = [
     { path: 'edit/:id', component: VisitorformWrapComponent },
     { path: 'new', component: VisitorformWrapComponent },
   ]},
-  { path: 'cards', component: CardsComponent},
+  { path: 'cards', component: CardsComponent, children: [
+    { path: 'new', component: CardformComponent },
+  ]},
   { path: 'statistics', component: StatisticsComponent},
 ];
 

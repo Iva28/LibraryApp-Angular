@@ -13,6 +13,7 @@ import { BookformComponent } from './bookform/bookform.component';
 import { BookformWrapComponent } from './bookform-wrap/bookform-wrap.component';
 import { VisitorformComponent } from './visitorform/visitorform.component';
 import { VisitorformWrapComponent } from './visitorform-wrap/visitorform-wrap.component';
+import { CardformComponent } from './cardform/cardform.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
@@ -36,7 +37,8 @@ import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/
     BookformComponent,
     BookformWrapComponent,
     VisitorformComponent,
-    VisitorformWrapComponent
+    VisitorformWrapComponent,
+    CardformComponent
   ],
   imports: [
     BrowserModule,

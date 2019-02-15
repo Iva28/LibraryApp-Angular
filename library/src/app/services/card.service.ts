@@ -10,13 +10,11 @@ export class CardService {
   private refreshSource: Subject<boolean> = new Subject();
   public refreshStream: Observable<boolean> = this.refreshSource.asObservable();
 
-  curDate = new Date();
-
   public cards: Card[] = [
-    new Card(1, 1, 1, new Date(this.curDate.setDate(this.curDate.getDate() - 4)), null),
-    new Card(1, 1, 1, new Date(this.curDate.setDate(this.curDate.getDate() - 2)), new Date()),
-    new Card(1, 1, 1, new Date(this.curDate.setDate(this.curDate.getDate() - 5)), null),
-    new Card(1, 1, 1, new Date(this.curDate.setDate(this.curDate.getDate() - 7)), new Date())
+    new Card(1, 1, 1, new Date(new Date().setDate(new Date().getDate() - 3)), null),
+    new Card(2, 2, 3, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
+    new Card(3, 3, 2, new Date(new Date().setDate(new Date().getDate() - 2)), null),
+    new Card(4, 4, 4, new Date(new Date().setDate(new Date().getDate() - 1)), new Date())
   ];
   
   constructor() { }
@@ -35,10 +33,8 @@ export class CardService {
     this.refreshSource.next(true);
   }
   
-  setReturnDate(id: number) {
-    this.getCard(id).dateReturn = new Date();
+  setReturnDate(cardId: number) {
+    this.getCard(cardId).dateReturn = new Date();
+    this.refreshSource.next(true);
   }
-
-
-
 }
