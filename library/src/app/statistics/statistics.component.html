@@ -1,3 +1,13 @@
-<p>
-  statistics works!
-</p>
+
+<p>TOP 5 BOOKS:</p>
+
+<ol>
+  <li *ngFor='let item of books'>Book: {{item.title}} ({{item.count}})</li>
+</ol>
+
+
+<p>TOP 5 VISITORS:</p>
+
+<ol>
+  <li *ngFor='let item of visitors'>Visitor: {{item.name}} ({{item.count}})</li>
+</ol>

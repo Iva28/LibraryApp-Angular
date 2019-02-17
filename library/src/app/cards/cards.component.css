@@ -4,6 +4,7 @@ h3 {
 
 table {
     width: 515px;
+    margin-bottom: 50px;
 }
 
 td.mat-cell, th.mat-header-cell {

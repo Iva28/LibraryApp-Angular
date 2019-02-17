@@ -11,11 +11,14 @@ export class BookService {
   public refreshStream: Observable<boolean> = this.refreshSource.asObservable();
 
   public books: Book[] = [
-    new Book(1, 'A', 'sdss', 2001, 'Publisher 1', 100, 7),
-    new Book(2, 'B', 'Author 2', 2002, 'Publisher 2', 200, 5),
+    new Book(1, 'A', 'A', 2001, 'Publisher 1', 100, 7),
+    new Book(2, 'B', 'B', 2002, 'Publisher 2', 200, 5),
     new Book(3, 'E', 'E', 2003, 'Publisher 3', 300, 4),
     new Book(4, 'C', 'C', 2004, 'Publisher 4', 400, 3),
-    new Book(5, 'W', 'D', 2005, 'Publisher 5', 500, 0)
+    new Book(5, 'W', 'D', 2005, 'Publisher 5', 500, 0),
+    new Book(6, 'Y', 'Y', 2011, 'Publisher 6', 500, 12),
+    new Book(7, 'U', 'U', 2012, 'Publisher 7', 500, 11),
+    new Book(8, 'Q', 'Q', 2013, 'Publisher 8', 500, 10)
   ];
 
   constructor() { }
