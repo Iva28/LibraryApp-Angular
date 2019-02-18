@@ -31,7 +31,6 @@ export class VisitorformWrapComponent implements OnInit {
       let dialogRef = this.dialog.open(VisitorformComponent, { data: visitor });      
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
-          console.log(visitor);
           if (visitor.id == 0) {
             this.visitorService.addVisitor(result);
           } else {
@@ -42,5 +41,4 @@ export class VisitorformWrapComponent implements OnInit {
       });
     });
   }
-
 }

@@ -35,8 +35,8 @@ export class CardsComponent implements OnInit {
     cs.forEach(c => {
       const book = this.bookService.getBook(c.bookID);     
       const visitor = this.visitorService.getVisitor(c.visitorID);
-      const pr = {id: c.id, visitor: visitor, book: book, dateOut: c.dateOut, dateReturn: c.dateReturn};
-      this.cards.push(pr);
+      const card = {id: c.id, visitor: visitor, book: book, dateOut: c.dateOut, dateReturn: c.dateReturn};
+      this.cards.push(card);
       });
     this.dataSource = new MatTableDataSource(this.cards);
   }

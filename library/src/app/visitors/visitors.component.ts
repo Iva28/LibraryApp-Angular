@@ -49,7 +49,4 @@ export class VisitorsComponent implements OnInit {
     })
     this.dataSource = new MatTableDataSource(res);
   }
-
-
-
 }
