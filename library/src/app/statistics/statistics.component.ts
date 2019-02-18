@@ -12,7 +12,6 @@ import { VisitorService } from '../services/visitor.service';
 export class StatisticsComponent implements OnInit {
 
   cards: Card[];
-  topFive: { [key: string]: any; } = {};
   books: Array<any> = [];
   visitors: Array<any> = [];
 
@@ -29,8 +28,8 @@ export class StatisticsComponent implements OnInit {
     this.cards.forEach( (c) => { counts[c.bookID] = (counts[c.bookID] || 0) + 1; });
     const props = Object.keys(counts).map(function(key) { return { key, value: this[key] }; }, counts);
     props.sort((a, b) => b.value - a.value);
-    this.topFive = props.slice(0, 5);
-    this.topFive.forEach(el => {
+    let topFive = props.slice(0, 5);
+    topFive.forEach(el => {
       const book = this.bookService.getBook(+el.key);
       if (book != null) {
         const b = {title: book.title, count: +el.value};
@@ -44,8 +43,8 @@ export class StatisticsComponent implements OnInit {
     this.cards.forEach( (c) => { counts[c.visitorID] = (counts[c.visitorID] || 0) + 1; });
     const props = Object.keys(counts).map(function(key) { return { key, value: this[key] }; }, counts);
     props.sort((a, b) => b.value - a.value);
-    this.topFive = props.slice(0, 5);
-    this.topFive.forEach(el => {
+    let topFive = props.slice(0, 5);
+    topFive.forEach(el => {
       const visitor = this.visitorService.getVisitor(+el.key);
       if (visitor != null) {
         const v = {name: visitor.name, count: +el.value};

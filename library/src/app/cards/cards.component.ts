@@ -33,7 +33,7 @@ export class CardsComponent implements OnInit {
     const cs = this.cardService.getCards();
     while (this.cards.length) { this.cards.pop(); } 
     cs.forEach(c => {
-      const book = this.bookService.getBook(c.bookID);
+      const book = this.bookService.getBook(c.bookID);     
       const visitor = this.visitorService.getVisitor(c.visitorID);
       const pr = {id: c.id, visitor: visitor, book: book, dateOut: c.dateOut, dateReturn: c.dateReturn};
       this.cards.push(pr);
