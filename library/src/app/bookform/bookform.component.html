@@ -1,4 +1,7 @@
-<form [formGroup]='bookForm' (ngSubmit)='onSubmit()'>
+
+<div class='dialog'>
+  <button (click)='onClose()' type='reset' class="closeBtn">x</button>
+  <form [formGroup]='bookForm' (ngSubmit)='onSubmit()'>
     <mat-form-field>
       <input formControlName='title' matInput type="text" placeholder="Title"/>
     </mat-form-field>
@@ -17,8 +20,6 @@
     <mat-form-field>
       <input formControlName='year' matInput type="number" placeholder="Year"/>
     </mat-form-field>
-    <div>
-      <button (click)='onClose()' type='reset' mat-raised-button>Close</button>
-      <button mat-raised-button color='primary' type="submit">Save</button>
-    </div>
+    <button mat-raised-button type="submit" class="saveBtn">Save</button>
   </form>
+</div>

@@ -11,21 +11,24 @@ export class CardService {
   public refreshStream: Observable<boolean> = this.refreshSource.asObservable();
 
   public cards: Card[] = [
-    new Card(1, 1, 1, new Date(new Date().setDate(new Date().getDate() - 3)), null),
-    new Card(2, 2, 3, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
-    new Card(3, 3, 2, new Date(new Date().setDate(new Date().getDate() - 2)), null),
-    new Card(4, 4, 4, new Date(new Date().setDate(new Date().getDate() - 1)), new Date()),
-    new Card(5, 4, 4, new Date(new Date().setDate(new Date().getDate() - 1)), new Date()),
-    new Card(6, 4, 3, new Date(new Date().setDate(new Date().getDate() - 1)), new Date()),
-    new Card(7, 2, 3, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
-    new Card(8, 2, 6, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
-    new Card(9, 2, 7, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
-    new Card(10, 2, 8, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
-    new Card(11, 2, 5, new Date(new Date().setDate(new Date().getDate() - 4)), null),
-    new Card(12, 1, 1, new Date(new Date().setDate(new Date().getDate() - 3)), null),
-    new Card(13, 2, 3, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
-    new Card(14, 6, 4, new Date(new Date().setDate(new Date().getDate() - 1)), new Date()),
-    new Card(15, 5, 4, new Date(new Date().setDate(new Date().getDate() - 1)), new Date()),
+    new Card(1, 1, 6, new Date(new Date().setDate(new Date().getDate() - 3)), null),
+    new Card(2, 2, 2, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
+    new Card(3, 2, 3, new Date(new Date().setDate(new Date().getDate() - 3)), new Date()),
+    new Card(4, 5, 4, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
+    new Card(5, 5, 5, new Date(new Date().setDate(new Date().getDate() - 3)), null),
+    new Card(6, 5, 6, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
+    new Card(7, 7, 7, new Date(new Date().setDate(new Date().getDate() - 3)), null),
+    new Card(8, 1, 4, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
+    new Card(9, 1, 5, new Date(new Date().setDate(new Date().getDate() - 3)), null),
+    new Card(10, 1, 6, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
+    new Card(11, 1, 7, new Date(new Date().setDate(new Date().getDate() - 3)), null),
+    new Card(12, 7, 7, new Date(new Date().setDate(new Date().getDate() - 3)), null),
+    new Card(13, 3, 4, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
+    new Card(14, 4, 5, new Date(new Date().setDate(new Date().getDate() - 3)), null),
+    new Card(15, 1, 6, new Date(new Date().setDate(new Date().getDate() - 4)), new Date()),
+    new Card(16, 6, 7, new Date(new Date().setDate(new Date().getDate() - 3)), null),
+    new Card(17, 2, 7, new Date(new Date().setDate(new Date().getDate() - 3)), null)
+
   ];
   
   constructor() { }

@@ -6,7 +6,7 @@ import { CardsComponent } from './cards/cards.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { BookformWrapComponent } from './bookform-wrap/bookform-wrap.component';
 import { VisitorformWrapComponent } from './visitorform-wrap/visitorform-wrap.component';
-import { CardformComponent } from './cardform/cardform.component';
+import { CardformWrapComponent } from './cardform-wrap/cardform-wrap.component';
 
 const routes: Routes = [
   { path: 'books', component: BooksComponent, children: [
@@ -19,7 +19,7 @@ const routes: Routes = [
     { path: 'new', component: VisitorformWrapComponent },
   ]},
   { path: 'cards', component: CardsComponent, children: [
-    { path: 'new', component: CardformComponent },
+    { path: 'new', component: CardformWrapComponent },
   ]},
   { path: 'statistics', component: StatisticsComponent},
 ];

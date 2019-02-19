@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from '@angular/forms';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,10 +10,11 @@ import { VisitorsComponent } from './visitors/visitors.component';
 import { CardsComponent } from './cards/cards.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { BookformComponent } from './bookform/bookform.component';
-import { BookformWrapComponent } from './bookform-wrap/bookform-wrap.component';
-import { VisitorformComponent } from './visitorform/visitorform.component';
-import { VisitorformWrapComponent } from './visitorform-wrap/visitorform-wrap.component';
 import { CardformComponent } from './cardform/cardform.component';
+import { VisitorformComponent } from './visitorform/visitorform.component';
+import { BookformWrapComponent } from './bookform-wrap/bookform-wrap.component';
+import { VisitorformWrapComponent } from './visitorform-wrap/visitorform-wrap.component';
+import { CardformWrapComponent } from './cardform-wrap/cardform-wrap.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
@@ -38,7 +39,8 @@ import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/
     BookformWrapComponent,
     VisitorformComponent,
     VisitorformWrapComponent,
-    CardformComponent
+    CardformComponent,
+    CardformWrapComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/
   bootstrap: [AppComponent],
   entryComponents: [
     BookformComponent,
-    VisitorformComponent
+    VisitorformComponent,
+    CardformComponent
   ]
 })
 export class AppModule { }

@@ -1,0 +1,28 @@
+.dialog {
+    position: relative;
+    width: 250px;
+}
+
+.closeBtn {
+    position: absolute;
+    top: -21px;
+    right: -18px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: black;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.saveBtn {
+    display: block; 
+    margin: 0 auto;
+    width: 150px;
+    background-color: darkcyan;
+    color: whitesmoke;
+}
+
+.mat-form-field {
+    display: block;
+}

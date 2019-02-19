@@ -1,5 +1,7 @@
 .logo {
     margin-right: 50px;
+    color: darkcyan;
+    font-weight: bold;
 }
 
 .container {
@@ -9,4 +11,10 @@
 
 .active {
     background-color: darkcyan;
+}
+
+a {
+    margin-left: 35px;
+    color: whitesmoke;
+    background-color: darkslategray;
 }

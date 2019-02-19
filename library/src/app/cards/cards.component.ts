@@ -48,17 +48,6 @@ export class CardsComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.cards);
   }
 
-  OpenDialog() {
-    let card = new Card (0, 0, 0, new Date(), null);
-    let dialogRef = this.dialog.open(CardformComponent, {data: card});
-    dialogRef.afterClosed().subscribe(result => {
-      if(result != undefined){
-        this.cardService.addCard(result);
-        this.bookService.reduceNumberOfCopies(result.bookID);
-      }
-    });
-  }
-
   setDateReturn(cardId: number) {
     this.cardService.setReturnDate(cardId);
     const card = this.cardService.getCard(cardId);

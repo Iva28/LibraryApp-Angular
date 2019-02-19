@@ -1,4 +1,6 @@
-<form [formGroup]='cardForm' (ngSubmit)='onSubmit()'>
+<div class='dialog'>
+  <button (click)='onClose()' type='reset' class="closeBtn">x</button>
+  <form [formGroup]='cardForm' (ngSubmit)='onSubmit()'>
     <mat-form-field>
       <mat-select formControlName='visitor'>
         <mat-option *ngFor="let v of visitors" [value]="v.id">
@@ -13,8 +15,6 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-  <div>
-    <button (click)='onClose()' type='reset' mat-raised-button>Close</button>
-    <button mat-raised-button color='primary' type="submit">Save</button>
-  </div>
-</form>
+    <button mat-raised-button color='primary' type="submit" class="saveBtn">Save</button>
+  </form>
+</div>

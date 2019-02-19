@@ -1,9 +1,22 @@
+.content {
+    width: 650px;
+    position: relative;
+}
+
+.newbtn {
+    position: absolute;
+    top:0;
+    right: 0;
+    background-color: darkslategray;
+    color: whitesmoke;
+}
+
 h3 {
     color: darkcyan;
 }
 
 table {
-    width: 515px;
+    width: 650px;
     margin-bottom: 50px;
 }
 
@@ -19,7 +32,7 @@ td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
     padding: 10px;
 }
 
-mat-form-field {
+.mat-form-field {
     margin: 5px;
 }
 
@@ -34,7 +47,7 @@ label {
 }
 
 .searchBox * {
-    margin: 5px;
+    margin-right: 10px;
 }
 
 .mat-button {

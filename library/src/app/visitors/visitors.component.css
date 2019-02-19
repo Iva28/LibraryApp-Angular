@@ -1,9 +1,22 @@
+.content {
+    width: 650px;
+    position: relative;
+}
+
+.newbtn {
+    position: absolute;
+    top:0;
+    right: 0;
+    background-color: darkslategray;
+    color: whitesmoke;
+}
+
 h3 {
     color: darkcyan;
 }
 
 table {
-    width: 470px;
+    width: 650px;
 }
 
 td.mat-cell, th.mat-header-cell {
@@ -14,7 +27,7 @@ th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:la
     padding-right: 0;
 }
 
-mat-form-field {
+.mat-form-field {
     margin: 5px;
 }
 
@@ -25,11 +38,11 @@ label {
 }
 
 .searchBox {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .searchBox * {
-    margin: 5px;
+    margin-right: 10px;
 }
 
 .mat-button {

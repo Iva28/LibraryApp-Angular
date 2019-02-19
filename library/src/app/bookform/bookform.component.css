@@ -1,4 +1,4 @@
-mat-form-field {
+.mat-form-field {
     display: block;
 }
 
@@ -6,12 +6,30 @@ form {
     width: 350px;
 }
 
-div {
-    display: block; 
-    margin: 0 auto;
-    width: 200px;
+.dialog {
+    position: relative;
 }
 
 button {
     margin: 15px;
+}
+
+.closeBtn {
+    position: absolute;
+    top: -32px;
+    right: -31px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: black;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.saveBtn {
+    display: block; 
+    margin: 0 auto;
+    width: 150px;
+    background-color: darkcyan;
+    color: whitesmoke;
 }
