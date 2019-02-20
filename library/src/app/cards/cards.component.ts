@@ -42,10 +42,11 @@ export class CardsComponent implements OnInit {
   }
 
   search(str: string) {
-    this.cards = this.cards.filter(function(c) {
+    let tmp = this.cards.slice();
+    tmp = tmp.filter(function(c) {
       return c.visitor.name.includes(str) || c.book.title.includes(str);
     });
-    this.dataSource = new MatTableDataSource(this.cards);
+    this.dataSource = new MatTableDataSource(tmp);
   }
 
   setDateReturn(cardId: number) {

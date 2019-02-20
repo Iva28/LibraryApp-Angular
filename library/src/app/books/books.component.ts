@@ -51,9 +51,10 @@ export class BooksComponent implements OnInit{
   }
 
   search(str: string) {
-    this.books = this.books.filter(function(b) {
+    let tmp = this.books.slice();
+    tmp = tmp.filter(function(b) {
       return b.author.includes(str) || b.title.includes(str) || b.publisher.includes(str) ;
     })
-    this.dataSource = new MatTableDataSource(this.books);
+    this.dataSource = new MatTableDataSource(tmp);
   }
 }

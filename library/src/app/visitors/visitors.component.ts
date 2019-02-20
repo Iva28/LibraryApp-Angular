@@ -44,9 +44,10 @@ export class VisitorsComponent implements OnInit {
   }
 
   search(str: string) {
-    let res = this.visitors.filter(function(v) {
+    let tmp = this.visitors.slice();
+    tmp = tmp.filter(function(v) {
       return v.name.includes(str) || v.phone.includes(str);
     })
-    this.dataSource = new MatTableDataSource(res);
+    this.dataSource = new MatTableDataSource(tmp);
   }
 }
