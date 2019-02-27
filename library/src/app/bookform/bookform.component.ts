@@ -2,7 +2,6 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Book } from '../models/book';
-import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-bookform',
@@ -14,8 +13,7 @@ export class BookformComponent implements OnInit {
   bookForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder, 
-    private bookService: BookService,
+    private fb: FormBuilder,
     public dialogRef: MatDialogRef<BookformComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Book) { }
 

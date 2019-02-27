@@ -49,7 +49,7 @@ export class BooksComponent implements OnInit{
     });
     this.dataSource = new MatTableDataSource(sortBooks);
   }
-
+  
   search(str: string) {
     let tmp = this.books.slice();
     tmp = tmp.filter(function(b) {
