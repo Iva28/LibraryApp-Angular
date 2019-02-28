@@ -27,7 +27,7 @@ export class CardformWrapComponent implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.cardService.addCard(result);
-          this.bookService.reduceNumberOfCopies(result.bookID);
+          this.bookService.reduceCopies(result.bookID);
         }
         this.router.navigate(['cards']);
       });

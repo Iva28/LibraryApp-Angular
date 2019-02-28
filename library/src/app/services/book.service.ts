@@ -63,12 +63,12 @@ export class BookService {
     this.refreshSource.next(true);
   }
 
-  reduceNumberOfCopies(bookId: number) {
+  reduceCopies(bookId: number) {
     this.getBook(bookId).copies--;
     localStorage.setItem('books', JSON.stringify(this.books));
   }
 
-  increaseNumberOfCopies(bookId: number) {
+  increaseCopies(bookId: number) {
     this.getBook(bookId).copies++;
     localStorage.setItem('books', JSON.stringify(this.books));
   }

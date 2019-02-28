@@ -17,7 +17,7 @@
         <input #box (keyup.enter)="search(box.value)">
         <button (click)="search(box.value)">Search</button>
       </div>
-    
+   
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf='cards'>
     
         <ng-container matColumnDef="id">

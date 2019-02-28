@@ -40,10 +40,6 @@ export class CardService {
    }
 
   getCards() {
-    this.cards.forEach(c => {
-      console.log(c.dateOut + ' - ' + c.dateReturn);
-      
-    });
     return this.cards;
   }
 
