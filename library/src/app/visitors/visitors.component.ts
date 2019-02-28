@@ -13,7 +13,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class VisitorsComponent implements OnInit {
 
   visitors: Visitor[];
-  dataSource;
+  dataSource = new MatTableDataSource<any>();
   displayedColumns = ['id', 'name', 'phone','actionEdit'];
   subscriptions: Subscription[] = [];
   sortTypes = ['id', 'name'];
@@ -28,7 +28,7 @@ export class VisitorsComponent implements OnInit {
 
   load() {
     this.visitors = this.visitorService.getVisitors();
-    this.dataSource = new MatTableDataSource(this.visitors);
+    this.dataSource.data = this.visitors;
   }
 
   sort(type: string) {
@@ -40,7 +40,7 @@ export class VisitorsComponent implements OnInit {
         return (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0;
       }
     });
-    this.dataSource = new MatTableDataSource(sortVisitors);
+    this.dataSource.data = sortVisitors;
   }
 
   search(str: string) {
@@ -48,6 +48,6 @@ export class VisitorsComponent implements OnInit {
     tmp = tmp.filter(function(v) {
       return v.name.includes(str) || v.phone.includes(str);
     })
-    this.dataSource = new MatTableDataSource(tmp);
+    this.dataSource.data = tmp;
   }
 }

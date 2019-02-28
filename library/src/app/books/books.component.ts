@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 export class BooksComponent implements OnInit{
 
   books: Book[];
-  dataSource;
+  dataSource = new MatTableDataSource<any>();
   displayedColumns = ['id', 'title', 'author', 'year', 'publisher', 'pages', 'copies', 'actionEdit', 'actionDelete'];
   subscriptions: Subscription[] = [];
   sortTypes = ['copies', 'title', 'author'];
@@ -29,7 +29,7 @@ export class BooksComponent implements OnInit{
 
   load() {
     this.books = this.bookService.getBooks();
-    this.dataSource = new MatTableDataSource(this.books);
+    this.dataSource.data = this.books;
   }
 
   delete(book: Book) {
@@ -47,7 +47,7 @@ export class BooksComponent implements OnInit{
         return (a.author < b.author) ? -1 : (a.author > b.author) ? 1 : 0;
       }
     });
-    this.dataSource = new MatTableDataSource(sortBooks);
+    this.dataSource.data = sortBooks;
   }
   
   search(str: string) {
@@ -55,6 +55,6 @@ export class BooksComponent implements OnInit{
     tmp = tmp.filter(function(b) {
       return b.author.includes(str) || b.title.includes(str) || b.publisher.includes(str) ;
     })
-    this.dataSource = new MatTableDataSource(tmp);
+    this.dataSource.data = tmp;
   }
 }
