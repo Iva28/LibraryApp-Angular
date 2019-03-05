@@ -46,7 +46,7 @@ export class VisitorsComponent implements OnInit {
   search(str: string) {
     let tmp = this.visitors.slice();
     tmp = tmp.filter(function(v) {
-      return v.name.includes(str) || v.phone.includes(str);
+      return v.name.includes(str.toLowerCase()) || v.phone.includes(str);
     })
     this.dataSource.data = tmp;
   }

@@ -53,8 +53,8 @@ export class BooksComponent implements OnInit{
   search(str: string) {
     let tmp = this.books.slice();
     tmp = tmp.filter(function(b) {
-      return b.author.includes(str) || b.title.includes(str) || b.publisher.includes(str) ;
-    })
+      return b.author.toLowerCase().includes(str.toLowerCase()) || b.title.toLowerCase().includes(str.toLowerCase()) || b.publisher.toLowerCase().includes(str.toLowerCase()) ;
+    })   
     this.dataSource.data = tmp;
   }
 }

@@ -2,14 +2,14 @@
   <button (click)='onClose()' type='reset' class="closeBtn">x</button>
   <form [formGroup]='cardForm' (ngSubmit)='onSubmit()'>
     <mat-form-field>
-      <mat-select formControlName='visitor'>
+      <mat-select formControlName='visitor' placeholder="Visitor">
         <mat-option *ngFor="let v of visitors" [value]="v.id">
           {{v.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <mat-select  formControlName='book'>
+      <mat-select  formControlName='book' placeholder="Book">
         <mat-option *ngFor="let b of books" [value]="b.id">
           {{b.title}}
         </mat-option>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Visitor } from '../models/visitor';
+import { CardService } from './card.service';
 
 @Injectable({
   providedIn: 'root'

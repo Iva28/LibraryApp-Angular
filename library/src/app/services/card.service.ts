@@ -59,4 +59,12 @@ export class CardService {
     localStorage.setItem('cards', JSON.stringify(this.cards));
     this.refreshSource.next(true);
   }
+
+  Remove(bookId: number) {
+    this.cards = this.cards.filter(function(item) {
+      return item.bookID != bookId;
+    });
+    localStorage.setItem('cards', JSON.stringify(this.cards));
+    this.refreshSource.next(true);
+  }
 }

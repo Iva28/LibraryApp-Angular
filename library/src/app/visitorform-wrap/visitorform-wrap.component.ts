@@ -18,7 +18,7 @@ export class VisitorformWrapComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    let visitor = new Visitor(0, '', '');
+    let visitor = new Visitor(0, null, null);
 
     this.route.params.forEach((params) => {
       const visId = +params['id'];

@@ -16,7 +16,6 @@ export class CardformComponent implements OnInit {
 
   books: Book[];
   visitors: Visitor[];
-
   cardForm: FormGroup;
 
   constructor(private fb: FormBuilder, private bookService: BookService, private visitorService: VisitorService,
@@ -31,7 +30,7 @@ export class CardformComponent implements OnInit {
     })
   }
 
-  onSubmit() {
+  onSubmit() {   
     if (this.cardForm.valid) {
       const newCard = new Card(0, this.cardForm.value.visitor, this.cardForm.value.book, new Date(), null);
       this.dialogRef.close(newCard);

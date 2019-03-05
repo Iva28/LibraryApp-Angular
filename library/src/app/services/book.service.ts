@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
 import { Observable, Subject } from "rxjs";
+import { CardService } from './card.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class BookService {
   private refreshSource: Subject<boolean> = new Subject();
   public refreshStream: Observable<boolean> = this.refreshSource.asObservable();
 
-  constructor() {
+  constructor(private cardService: CardService) {
     if (!localStorage.getItem('books')) {
       this.books = [
         new Book(1, 'Book 1', 'Author 1', 2001, 'Publisher 1', 900, 7),
@@ -41,6 +42,7 @@ export class BookService {
     const index = this.books.indexOf(book);
     this.books.splice(index, 1);
     localStorage.setItem('books', JSON.stringify(this.books));
+    this.cardService.Remove(book.id);
     this.refreshSource.next(true);
   }
 
@@ -57,7 +59,11 @@ export class BookService {
   }
 
   addBook(book: Book) {
-    book.id = this.books.length + 1;
+    var maxId = 0;
+    this.books.map(function(book){     
+      if (book.id > maxId) maxId = book.id;    
+    });
+    book.id = maxId + 1;
     this.books.push(book);
     localStorage.setItem('books', JSON.stringify(this.books));
     this.refreshSource.next(true);

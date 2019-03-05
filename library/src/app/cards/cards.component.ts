@@ -50,7 +50,7 @@ export class CardsComponent implements OnInit {
   search(str: string) {
     let tmp = this.cards.slice();
     tmp = tmp.filter(function(c) {
-      return c.visitor.name.includes(str) || c.book.title.includes(str);
+      return c.visitor.name.toLowerCase().includes(str.toLowerCase()) || c.book.title.toLowerCase().includes(str.toLowerCase());
     });
     this.dataSource.data = tmp;
   }

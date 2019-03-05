@@ -18,10 +18,8 @@ export class CardformWrapComponent implements OnInit {
     private bookService: BookService,
     private router: Router) { }
 
-  ngOnInit() {
-    
-    let card = new Card(0, 0, 0, new Date(), null);
-    
+  ngOnInit() {    
+    let card = new Card(0, null, null, new Date(), null);
     setTimeout(() => {
       let dialogRef = this.dialog.open(CardformComponent, { data: card });      
       dialogRef.afterClosed().subscribe(result => {
